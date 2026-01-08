@@ -19,4 +19,10 @@ jobs:
       - name: Get Secret
         run: |
           echo "${{ secrets.SECRET }}"
+      
+      - name: Get Variables
+        run: |
+          echo "Who is your son?"
+          echo "${{ vars.VAR1 }}"
+          
           
