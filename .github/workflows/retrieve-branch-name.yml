@@ -5,12 +5,13 @@ on:
       - '*'
 
 jobs:
-  retrieve-branch:
+  create-dev-clones:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - name: 🪄 Get branch names 🪄
+        id: branch-names
+        uses: tj-actions/branch-names@v8
 
-      - name: Display Branch Name
+      - name: 🐛 Get current branch 🐛
         run: |
-          echo "Current Branch: ${{ github.ref }}"
+          echo "${{ steps.branch-names.outputs.current_branch }}"
